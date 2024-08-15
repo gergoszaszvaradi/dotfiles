@@ -1,5 +1,8 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
+;; Maximize
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
@@ -77,17 +80,22 @@
 
 ;; F14 as leader key
 (map! :map key-translation-map
-  "<XF86Launch5>" "C-c"
-  "<Launch5>" "C-c"
-  "<f14>" "C-c")
+      "<XF86Launch5>" "C-c"
+      "<Launch5>" "C-c"
+      "<f14>" "C-c")
+
+;; Ivy
+(map! :after ivy
+      :map ivy-minibuffer-map
+      "C-o" #'ivy-occur)
 
 ;; Copilot
 (after! copilot
   (setq copilot-indent-offset-warning-disable t))
 (add-hook 'prog-mode-hook 'copilot-mode)
 (map! :after copilot :map copilot-completion-map
-  "<tab>" #'copilot-accept-completion
-  "TAB" #'copilot-accept-completion)
+      "<tab>" #'copilot-accept-completion
+      "TAB" #'copilot-accept-completion)
 
 ;; LSP
 (after! lsp-mode
@@ -97,30 +105,35 @@
 (add-hook 'go-mode-hook #'lsp-deferred)
 (add-hook 'typescript-mode-hook #'lsp-deferred)
 (add-hook 'post-command-hook 
-  (lambda () 
-    (flycheck-popup-tip-mode -1)))
+          (lambda ()
+            (flycheck-popup-tip-mode -1)))
 (map! :after lsp-mode :map lsp-mode-map
-  "C-c g d" #'lsp-find-definition
-  "C-c g r" #'lsp-find-references
-  "C-c g i" #'lsp-find-implementation
-  "C-c h" #'lsp-ui-doc-glance ;; @todo: figure out lsp-ui-mode
-  "C-c ." #'lsp-execute-code-action)
+      "C-c g d" #'lsp-find-definition
+      "C-c g r" #'lsp-find-references
+      "C-c g i" #'lsp-find-implementation
+      "C-c h" #'lsp-ui-doc-glance ;; @todo: figure out lsp-ui-mode
+      "C-c ." #'lsp-execute-code-action)
 
 ;; Projectile
 ;; (after! projectile
 ;;   (projectile-buffers-filter-function 'projectile-buffers-with-file-or-process))
 (map! :after projectile
-  "C-<prior>" #'projectile-previous-project-buffer
-  "C-<next>" #'projectile-next-project-buffer
-  "C-\\" #'projectile-switch-to-buffer
-  :map projectile-mode-map
-  :prefix "C-p"
-  "p" #'projectile-switch-project
-  "a" #'projectile-add-known-project
-  "f" #'projectile-find-file
-  "b" #'projectile-compile-project
-  "r" #'projectile-run-project
-  "t" #'projectile-test-project)
+      "C-<prior>" #'projectile-previous-project-buffer
+      "C-<next>" #'projectile-next-project-buffer
+      "C-\\" #'projectile-switch-to-buffer
+      :map projectile-mode-map
+      :prefix "C-p"
+      "p" #'projectile-switch-project
+      "a" #'projectile-add-known-project
+      "f" #'projectile-find-file
+      "b" #'projectile-compile-project
+      "r" #'projectile-run-project
+      "t" #'projectile-test-project)
+
+;; Counsel
+(map! :after counsel-projectile
+      "C-c f r" #'counsel-projectile-rg
+      "C-c f f" #'counsel-projectile-find-file)
 
 ;; Treemacs
 (after! treemacs
@@ -133,17 +146,36 @@
   (setq treemacs-display-current-project-exclusively t))
 (map! "C-e" #'treemacs)
 (map! :after treemacs
-  :map treemacs-mode-map
-  "<right>" #'treemacs-RET-action ;; Open folder
-  "<left>" #'treemacs-COLLAPSE-action ;; Focus parent or close folder
-  "r" #'treemacs-rename-file ;; Rename entry
-  "p" #'treemacs-peek-mode) ;; Peek file
+      :map treemacs-mode-map
+      "<right>" #'treemacs-RET-action ;; Open folder
+      "<left>" #'treemacs-COLLAPSE-action ;; Focus parent or close folder
+      "r" #'treemacs-rename-file ;; Rename entry
+      "p" #'treemacs-peek-mode) ;; Peek file
 
 ;; Undo tree
 (map! :after undo-tree
-  "C-z" #'undo-tree-undo
-  "C-S-z" #'undo-tree-redo
-  "C-M-z" #'undo-tree-visualize)
+      "C-z" #'undo-tree-undo
+      "C-S-z" #'undo-tree-redo
+      "C-M-z" #'undo-tree-visualize)
+
+;; HL TODO
+(after! hl-todo
+  (setq hl-todo-keyword-faces
+        '(("todo"   . "#F6E96B")
+          ("dont"   . "#FF5246")
+          ("fail"   . "#FF5246")
+          ("bug"    . "#FF5246")
+          ("issue"  . "#FF5246")
+          ("note"   . "#5B99C2")
+          ("maybe"  . "#B5CFB7")
+          ("hack"   . "#A652FF")
+          ("fixme"  . "#FF8343"))))
+
+;; Multiple cursors
+(map! :after multiple-cursors
+      "M-<mouse-1>" #'mc/add-cursor-on-click
+      "C-d" #'mc/mark-next-like-this
+      "C-S-d" #'mc/mark-all-like-this)
 
 ;; Keybindings
 
@@ -166,15 +198,15 @@
 (map! "C-S-k" #'kill-whole-line)
 (map! :map key-translation-map "C-c" "C-c x")
 (map! "C-c x" (lambda () (interactive) (let (ξp1 ξp2 (deactivate-mark nil))
-    (if current-prefix-arg
-        (setq ξp1 (point-min) ξp2 (point-max))
-      (if (use-region-p)
-          (progn (setq ξp1 (region-beginning) ξp2 (region-end))
-				 (kill-ring-save ξp1 ξp2))
-        (progn
-		  (setq ξp1 (line-beginning-position) ξp2 (line-end-position))
-		  (kill-ring-save ξp1 ξp2)
-		  (kill-append "\n" t)))))))
+                                         (if current-prefix-arg
+                                             (setq ξp1 (point-min) ξp2 (point-max))
+                                           (if (use-region-p)
+                                               (progn (setq ξp1 (region-beginning) ξp2 (region-end))
+                                                      (kill-ring-save ξp1 ξp2))
+                                             (progn
+                                               (setq ξp1 (line-beginning-position) ξp2 (line-end-position))
+                                               (kill-ring-save ξp1 ξp2)
+                                               (kill-append "\n" t)))))))
 (map! "C-v" #'yank)
 (map! "C-/" #'comment-line)
 (map! "C-a" #'mark-whole-buffer)
