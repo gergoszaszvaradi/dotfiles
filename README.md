@@ -66,3 +66,13 @@ stow zsh
 ```
 
 You might face some issues since installing zsh will create the .zshrc that need to be stowed. If so, delete them first from you home directory and then run stow.
+
+### Solaar
+
+I'm using a Logitech MX Master 3S and on linux, solaar is the best way to configure it.
+
+``` sh
+stow solaar
+```
+
+This adds some rules I use to remap the side buttons on the mouse.
