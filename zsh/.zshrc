@@ -72,10 +72,6 @@ alias c='clear'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias emacs=emacs-gtk+x11
 
-mkcd() {
-	mkdir $1 && cd $1
-}
-
 if [ -f $HOME/.shrc ]; then
-	. $HOME/.shrc
+    . $HOME/.shrc
 fi
