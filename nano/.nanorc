@@ -1,0 +1,22 @@
+set atblanks
+set cutfromcursor
+set softwrap
+set linenumbers
+set tabstospaces
+set tabsize 4
+set constantshow
+set positionlog
+set zap
+set autoindent
+set minibar
+set nohelp
+set mouse
+
+set titlecolor brightwhite,black
+set numbercolor brightwhite,black
+
+bind ^Q exit main
+bind ^C copy main
+bind ^V paste all
+bind ^F whereis all
+bind ^S savefile main

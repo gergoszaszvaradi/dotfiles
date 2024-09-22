@@ -38,3 +38,7 @@ function gz() {
     printf "orig: %d bytes\n" "$origsize";
     printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio";
 }
+
+function nixos-config() {
+    ~/nixos-config
+}

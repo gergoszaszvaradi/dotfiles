@@ -76,3 +76,11 @@ stow solaar
 ```
 
 This adds some rules I use to remap the side buttons on the mouse.
+
+### Nano
+
+Nano is installed on any linux distro, so a good config does not hurt.
+
+``` sh
+stow nano
+```
