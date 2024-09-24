@@ -12,8 +12,8 @@ set minibar
 set nohelp
 set mouse
 
-set titlecolor brightwhite,black
-set numbercolor brightwhite,black
+set titlecolor gray,normal
+set numbercolor gray,normal
 
 bind ^Q exit main
 bind ^C copy main
