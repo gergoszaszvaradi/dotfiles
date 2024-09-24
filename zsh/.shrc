@@ -40,5 +40,5 @@ function gz() {
 }
 
 function nixos-config() {
-    sudo /etc/nixos/nixos-config
+    sudo /etc/nixos/nixos-config.sh
 }

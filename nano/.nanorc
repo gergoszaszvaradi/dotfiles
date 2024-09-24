@@ -20,3 +20,5 @@ bind ^C copy main
 bind ^V paste all
 bind ^F whereis all
 bind ^S savefile main
+bind ^Z undo main
+bind ^Y redo main
