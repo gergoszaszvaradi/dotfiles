@@ -118,6 +118,9 @@
       "r" #'treemacs-rename-file
       "p" #'treemacs-peek-mode)
 
+;; Magit
+(map! :leader "g g" #'magit-status)
+
 ;; Multiple cursors
 (map! :after multiple-cursors
       "M-<mouse-1>" #'mc/add-cursor-on-click
