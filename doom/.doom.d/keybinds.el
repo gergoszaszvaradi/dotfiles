@@ -125,15 +125,15 @@
 (map! :leader "g g" #'magit-status)
 
 ;; Multiple cursors
-(map! :after multiple-cursors
-      "M-<mouse-1>" #'mc/add-cursor-on-click
-      "C-d" #'mc/mark-next-like-this
-      "C-S-d" #'mc/mark-all-like-this)
+(map!
+ "M-<mouse-1>" #'mc/add-cursor-on-click
+ "C-d" #'mc/mark-next-like-this
+ "C-S-d" #'mc/mark-all-like-this)
 
 ;; Editing
 
 ;; Comment/uncomment
-(map! "C-/" #'comment-line)
+(map! :map key-translation-map "C-/" "C-x C-;")
 
 
 ;; Other
