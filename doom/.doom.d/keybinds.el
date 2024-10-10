@@ -38,6 +38,9 @@
                                                (kill-append "\n" t)))))))
 (map! "C-v" #'yank)
 
+;; Remove line
+(map! "C-k" (lambda () (interactive) (delete-region (point) (save-excursion (move-end-of-line 1) (point))) (delete-char 1)))
+
 ;; Find and Replace
 (map! "C-f" #'isearch-forward)
 (map! "C-S-f" #'isearch-backward)
