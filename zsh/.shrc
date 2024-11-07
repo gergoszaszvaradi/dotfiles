@@ -12,9 +12,18 @@ PATH="$PATH:$HOME/go/bin:$HOME/.emacs.d/bin"
 export PATH
 
 alias lg=lazygit
+alias c=clear
 
 
 # Functions
+
+la() {
+    ls -a
+}
+
+lah() {
+    ls -lah
+}
 
 mkcd() {
     mkdir $@ && cd $_

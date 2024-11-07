@@ -50,6 +50,11 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # Keybinds
+bindkey "^[[H"  beginning-of-line
+bindkey "^[[F"  end-of-line
+bindkey "^[[3~" delete-char
+bindkey "^[[A"  history-search-backward
+bindkey "^[[B"  history-search-forward
 bindkey -M menuselect '\e' undo
 
 # Load .shrc
