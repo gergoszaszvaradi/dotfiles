@@ -41,6 +41,7 @@ HISTSIZE=5000
 HISTFILE=$ZSH/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
+HISTORY_IGNORE="(fg|exit)"
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -53,8 +54,9 @@ setopt hist_find_no_dups
 bindkey "^[[H"  beginning-of-line
 bindkey "^[[F"  end-of-line
 bindkey "^[[3~" delete-char
-bindkey "^[[A"  history-search-backward
-bindkey "^[[B"  history-search-forward
+bindkey "^[[1;5D" backward-word
+bindkey "^[[1;5C" forward-word
+
 bindkey -M menuselect '\e' undo
 
 # Load .shrc

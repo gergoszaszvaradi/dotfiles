@@ -1,0 +1,71 @@
+{
+  "assistant": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4o"
+    },
+    "version": "2"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "base_keymap": "VSCode",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "ui_font_size": 16,
+  "buffer_font_family": "CaskaydiaCove Nerd Font",
+  "buffer_font_size": 16,
+  "buffer_line_height": "standard",
+  "buffer_font_features": {
+    "ligatures": true
+  },
+  "terminal": {
+    "font_family": "CaskaydiaCove Nerd Font",
+    "line_height": "standard",
+    "shell": {
+      "program": "bash"
+    }
+  },
+  "cursor_shape": "bar",
+  "tab_bar": {
+    "show_nav_history_buttons": false,
+    "show": true
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false
+  },
+  "inlay_hints": {
+    "enabled": false
+  },
+  "show_whitespaces": "none",
+  "preview_tabs": {
+    "enable_preview_from_file_finder": true,
+    "enable_preview_from_code_navigation": true
+  },
+  "projects_online_by_default": false,
+  "project_panel": {
+    "dock": "right",
+    "auto_fold_dirs": false
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "preferred_line_length": 200,
+  "formatter": "language_server",
+  "format_on_save": "on",
+  "auto_install_extensions": {
+    "tomorrow-theme": true,
+    "html": true,
+    "dockerfile": true,
+    "docker-compose": true,
+    "make": true
+  },
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Doom Tomorrow Night"
+  }
+}

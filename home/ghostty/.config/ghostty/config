@@ -1,0 +1,11 @@
+font-family = "CaskaydiaCove Nerd Font"
+adjust-cell-height = 10%
+theme = Japanesque
+
+keybind = ctrl+shift+o=unbind
+keybind = ctrl+shift+left=unbind
+keybind = ctrl+shift+right=unbind
+keybind = shift+home=unbind
+keybind = shift+end=unbind
+keybind = ctrl+page_down=unbind
+keybind = ctrl+page_up=unbind
