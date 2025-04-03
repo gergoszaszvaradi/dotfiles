@@ -18,6 +18,10 @@ in
   # Networking
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
+  networking.hosts = {
+    "192.168.1.3" = [ "wacky" ];
+    "192.168.1.4" = [ "3d-printer" ];
+  };
 
   # Enable experimental features
   nix.settings.experimental-features = [ "nix-command" ];
