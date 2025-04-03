@@ -49,6 +49,8 @@ function gz() {
     printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio";
 }
 
+alias nix-shell='nix-shell --run $SHELL'
+
 function nixos-config() {
     sudo /home/gergoszaszvaradi/.dotfiles/nixos/nixos-config.sh
 }
@@ -64,5 +66,5 @@ function y() {
 
 emacs --daemon > /dev/null 2>&1
 function emacs() {
-    emacsclient -nw
+    emacsclient -nw -c $1
 }
