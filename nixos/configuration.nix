@@ -129,6 +129,7 @@ in
     git
     fzf
     ripgrep
+    jq
     global
     anydesk
     lm_sensors
