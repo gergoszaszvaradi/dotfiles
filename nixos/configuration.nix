@@ -230,7 +230,7 @@ in
     "org.gnome.GHex"
     "org.gnome.Logs"
     "org.gnome.Loupe"
-    "org.gnome.Music"
+    "org.gnome.Decibels"
     "org.gnome.SimpleScan"
     "org.gnome.TextEditor"
     "org.gnome.Weather"
