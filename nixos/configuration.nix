@@ -132,6 +132,7 @@ in
     jq
     global
     anydesk
+    discord
     lm_sensors
     nautilus
     nautilus-python
@@ -202,7 +203,7 @@ in
     "ca.desrt.dconf-editor"
     "com.axosoft.GitKraken"
     "com.brave.Browser"
-    "com.discordapp.Discord"
+    # "com.discordapp.Discord"
     "com.github.ADBeveridge.Raider"
     "com.github.PintaProject.Pinta"
     "com.github.finefindus.eyedropper"
