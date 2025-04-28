@@ -184,8 +184,6 @@ in
     # Other
     nerdfonts
     trufflehog
-
-    looking-glass-client
   ]);
 
   # Enable flatpak
