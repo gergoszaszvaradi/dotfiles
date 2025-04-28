@@ -14,6 +14,7 @@ in
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = [ "amdgpu.dc=1" ];
 
   # Networking
   networking.hostName = "nixos";
@@ -63,6 +64,7 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.displayManager.gdm.wayland = false;
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Remove gnome default applications
   services.gnome.core-utilities.enable = false;
@@ -182,6 +184,8 @@ in
     # Other
     nerdfonts
     trufflehog
+
+    looking-glass-client
   ]);
 
   # Enable flatpak
