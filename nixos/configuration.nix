@@ -67,7 +67,7 @@ in
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Remove gnome default applications
-  services.gnome.core-utilities.enable = false;
+  services.gnome.core-apps.enable = false;
   environment.gnome.excludePackages = [ pkgs.gnome-tour ];
 
   # Configure keymap in X11
@@ -77,7 +77,7 @@ in
   };
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -129,8 +129,10 @@ in
   environment.systemPackages = (with pkgs; [
     wget
     git
+    gh
     fzf
     ripgrep
+    file
     jq
     global
     anydesk
@@ -139,6 +141,7 @@ in
     nautilus-python
     gnome-system-monitor
     unstable.ghostty
+    alacritty
     xclip
     emacs-gtk
     stow
@@ -182,7 +185,8 @@ in
     distrobox
 
     # Other
-    nerdfonts
+    nerd-fonts.caskaydia-cove
+    nerd-fonts.fira-code
     trufflehog
   ]);
 
@@ -373,11 +377,6 @@ in
     ];
   };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  # system.stateVersion = "24.05"; # original version
+  system.stateVersion = "25.05";
 }
