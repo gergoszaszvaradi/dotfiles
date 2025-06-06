@@ -263,9 +263,6 @@ in
     enable = true;
     flags = [
       "-I nixos-config=/home/gergoszaszvaradi/.dotfiles/nixos/configuration.nix"
-      "--update-input"
-      "nixpkgs"
-      "-L" # print build logs
     ];
     dates = "18:00";
     randomizedDelaySec = "45min";
