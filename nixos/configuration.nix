@@ -155,7 +155,6 @@ in
     # inputs.umu.packages.${system}.umu
     widevine-cdm
     unstable.multiviewer-for-f1
-    mixxx
 
     # GNOME extensions
     gnomeExtensions.appindicator
