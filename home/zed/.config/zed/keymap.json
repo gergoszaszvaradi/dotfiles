@@ -21,12 +21,11 @@
       "f4 p p": "projects::OpenRecent",
       "f4 p f": "file_finder::Toggle",
       "f4 g g": [
-        "workspace::SendKeystrokes",
-        "f1 new center terminal enter lazygit enter"
-      ],
-      "f4 g f": [
-        "workspace::SendKeystrokes",
-        "f1 new center terminal enter yazi enter"
+        "task::Spawn",
+        {
+          "task_name": "lazygit",
+          "reveal_target": "center"
+        }
       ],
       "f4 g e": "diagnostics::Deploy"
     }

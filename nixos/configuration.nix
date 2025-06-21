@@ -145,7 +145,7 @@ in
     xclip
     emacs-gtk
     stow
-    zed-editor
+    unstable.zed-editor
     unrar
     wine
     winetricks
