@@ -87,6 +87,14 @@ in
     pulse.enable = true;
   };
 
+  # Printing
+  services.printing = {
+    enable = true;
+    drivers = (with pkgs; [
+      gutenprint
+    ]);
+  };
+
   # Xbox Controller
   hardware.xone.enable = true;
 
@@ -156,6 +164,8 @@ in
     widevine-cdm
     unstable.multiviewer-for-f1
     mixxx
+    arduino
+    vlc
 
     # GNOME extensions
     gnomeExtensions.appindicator

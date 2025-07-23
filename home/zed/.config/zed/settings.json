@@ -61,7 +61,8 @@
     "html": true,
     "dockerfile": true,
     "docker-compose": true,
-    "make": true
+    "make": true,
+    "xml": true
   },
   "theme": {
     "mode": "system",
