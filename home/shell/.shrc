@@ -63,8 +63,3 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
-
-emacs --daemon > /dev/null 2>&1
-function emacs() {
-    emacsclient -nw -c $1
-}

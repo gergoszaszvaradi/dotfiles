@@ -1,6 +1,7 @@
-font-family = "CaskaydiaCove Nerd Font"
+#font-family = "CaskaydiaCove Nerd Font Mono"
 adjust-cell-height = 10%
 theme = Japanesque
+window-padding-x = 5
 
 keybind = ctrl+shift+o=unbind
 keybind = ctrl+shift+left=unbind

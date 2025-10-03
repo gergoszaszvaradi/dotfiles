@@ -52,7 +52,7 @@ in
   users.users.gergoszaszvaradi = {
     isNormalUser = true;
     description = "gergoszaszvaradi";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" ];
     shell = pkgs.zsh;
   };
 
@@ -94,9 +94,14 @@ in
       gutenprint
     ]);
   };
+  # Scanners
+  # hardware.sane.enable = true;
 
   # Xbox Controller
   hardware.xone.enable = true;
+
+  # Logitech devices
+  hardware.logitech.wireless.enable = true;
 
   # Enable podman with docker compatibility
   virtualisation.podman = {
@@ -151,6 +156,7 @@ in
     unstable.ghostty
     alacritty
     xclip
+    solaar
     emacs-gtk
     stow
     unstable.zed-editor
@@ -166,6 +172,7 @@ in
     mixxx
     arduino
     vlc
+    vial
 
     # GNOME extensions
     gnomeExtensions.appindicator
@@ -196,7 +203,6 @@ in
 
     # Other
     nerd-fonts.caskaydia-cove
-    nerd-fonts.fira-code
     trufflehog
   ]);
 
@@ -260,6 +266,8 @@ in
 
   # Update flatpak packages on activation
   services.flatpak.update.onActivation = true;
+
+  services.udev.extraRules = ''KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"'';
 
   # Garbage collection
   nix.gc = {
