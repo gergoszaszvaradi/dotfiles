@@ -169,7 +169,6 @@ in
     # inputs.umu.packages.${system}.umu
     widevine-cdm
     unstable.multiviewer-for-f1
-    mixxx
     arduino
     vlc
     vial
