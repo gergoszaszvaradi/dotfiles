@@ -1,8 +1,9 @@
 { config, pkgs, ... }:
 
 let
-    unstable = import <nixos-unstable> { config.allowUnfree = true; };
-    nix-flatpak = fetchGit { url = "https://github.com/gmodena/nix-flatpak.git"; rev = "5e54c3ca05a7c7d968ae1ddeabe01d2a9bc1e177"; };
+  unstable = import <nixos-unstable> { config.allowUnfree = true; };
+  gergoszaszvaradi = import <gergoszaszvaradi> { config.allowUnfree = true; };
+  nix-flatpak = fetchGit { url = "https://github.com/gmodena/nix-flatpak.git"; rev = "5e54c3ca05a7c7d968ae1ddeabe01d2a9bc1e177"; };
 in
 {
   imports =
@@ -160,6 +161,7 @@ in
     emacs-gtk
     stow
     unstable.zed-editor
+    postman
     unrar
     wine
     winetricks
@@ -169,6 +171,7 @@ in
     # inputs.umu.packages.${system}.umu
     widevine-cdm
     unstable.multiviewer-for-f1
+    gergoszaszvaradi.mixxx
     arduino
     vlc
     vial
