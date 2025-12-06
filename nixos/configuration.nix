@@ -123,11 +123,11 @@ in
   # Add steam
   programs.steam.enable = true;
 
+  # Nautilus open terminal extension
   programs.nautilus-open-any-terminal = {
     enable = true;
     terminal = "ghostty";
   };
-
   environment = {
     sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${pkgs.nautilus-python}/lib/nautilus/extensions-4";
     pathsToLink = [
@@ -138,9 +138,9 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # Packages
   environment.systemPackages = (with pkgs; [
+    # Core
     wget
     git
     gh
@@ -149,43 +149,61 @@ in
     file
     jq
     global
-    anydesk
+    xclip
     lm_sensors
+    stow
+
+    # Utilities
+    solaar
+    unrar
+    vial
+    yazi
+    distrobox
+    trufflehog
+    dconf-editor
+    raider
+    pinta
+    eyedropper
+    peek
+    f3d
+    mousai
+    ghex
+    loupe
+    evince
+    decibels
+    baobab
+    libreoffice
+
+    # General
+    brave
+    discord
+    spotify
+    stremio
+    fragments
+    audacity
+    blender
+    gimp
+    anydesk
     nautilus
     nautilus-python
     gnome-system-monitor
-    unstable.ghostty
-    alacritty
-    xclip
-    solaar
-    emacs-gtk
-    stow
-    unstable.zed-editor
-    postman
-    unrar
-    wine
-    winetricks
-    bottles
-    lutris
-    parsec-bin
-    # inputs.umu.packages.${system}.umu
-    widevine-cdm
     unstable.multiviewer-for-f1
     gergoszaszvaradi.mixxx
-    arduino
     vlc
-    vial
 
-    # GNOME extensions
-    gnomeExtensions.appindicator
-    gnomeExtensions.clipboard-indicator
-    gnomeExtensions.custom-hot-corners-extended
-    gnomeExtensions.dash-to-panel
-    gnomeExtensions.emoji-copy
-    gnomeExtensions.random-wallpaper
-    gnomeExtensions.vitals
+    # GNOME Apps
+    gnome-calculator
+    gnome-font-viewer
+    gnome-logs
+    gnome-weather
+    gnome-clocks
 
     # Development
+    unstable.ghostty
+    alacritty
+    emacs-gtk
+    unstable.zed-editor
+    postman
     podman-compose
     gnumake
     libgcc
@@ -198,14 +216,28 @@ in
     go
     python3
     nodePackages.nodejs
-
     lazygit
-    yazi
-    distrobox
+    arduino
+
+    # Gaming
+    wine
+    winetricks
+    lutris
+    parsec-bin
+    widevine-cdm
+    prismlauncher
+
+    # GNOME extensions
+    gnomeExtensions.appindicator
+    gnomeExtensions.clipboard-indicator
+    gnomeExtensions.custom-hot-corners-extended
+    gnomeExtensions.dash-to-panel
+    gnomeExtensions.emoji-copy
+    gnomeExtensions.random-wallpaper
+    gnomeExtensions.vitals
 
     # Other
     nerd-fonts.caskaydia-cove
-    trufflehog
   ]);
 
   # Enable flatpak
@@ -223,47 +255,14 @@ in
 
   # Install flatpak packages
   services.flatpak.packages = [
-    "ca.desrt.dconf-editor"
-    "com.axosoft.GitKraken"
-    "com.brave.Browser"
-    "com.discordapp.Discord"
-    "com.github.ADBeveridge.Raider"
-    "com.github.PintaProject.Pinta"
-    "com.github.finefindus.eyedropper"
     "com.github.tchx84.Flatseal"
-    "com.mattjakeman.ExtensionManager"
     "com.mojang.Minecraft"
-    "com.mongodb.Compass"
-    "com.spotify.Client"
-    "com.stremio.Stremio"
     "com.ultimaker.cura"
-    "com.uploadedlobster.peek"
-    "de.haeckerfelix.Fragments"
-    "io.github.f3d_app.f3d"
-    "io.github.seadve.Mousai"
     "io.github.zen_browser.zen"
     "me.timschneeberger.jdsp4linux"
-    "org.audacityteam.Audacity"
-    "org.blender.Blender"
     "org.fedoraproject.MediaWriter"
-    "org.gimp.GIMP"
-    "org.gnome.Calculator"
-    "org.gnome.Calendar"
-    "org.gnome.Characters"
-    "org.gnome.Evince"
     "org.gnome.FileRoller"
-    "org.gnome.GHex"
-    "org.gnome.Logs"
-    "org.gnome.Loupe"
-    "org.gnome.Decibels"
     "org.gnome.SimpleScan"
-    "org.gnome.TextEditor"
-    "org.gnome.Weather"
-    "org.gnome.baobab"
-    "org.gnome.clocks"
-    "org.gnome.font-viewer"
-    "org.libreoffice.LibreOffice"
-    "org.prismlauncher.PrismLauncher"
   ];
 
   # Update flatpak packages on activation
@@ -333,19 +332,6 @@ in
             default-folder-viewer = "'icon-view'";
             migrated-gtk-settings = true;
             search-filter-time-type = "'last_modified'";
-          };
-          "com/raggesilver/BlackBox" = {
-            fill-tabs = true;
-            font = "'CaskaydiaCove Nerd Font 11'";
-            headerbar-drag-area = true;
-            remember-window-size = true;
-            terminal-padding = "(uint32 5, uint32 5, uint32 5, uint32 5)";
-            theme-dark = "'Japanesque'";
-            window-height = "uint32 753";
-            window-width = "uint32 1320";
-          };
-          "com/github/stunkymonkey/nautilus-open-any-terminal" = {
-            terminal = "'ghostty'";
           };
           "org/gnome/shell/extensions/appindicator" = {
             legacy-tray-enabled = true;

@@ -2,6 +2,9 @@
 adjust-cell-height = 10%
 theme = Japanesque
 window-padding-x = 5
+window-width = 100
+window-height = 25
+window-save-state = always
 
 keybind = ctrl+shift+o=unbind
 keybind = ctrl+shift+left=unbind
