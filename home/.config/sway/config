@@ -1,0 +1,90 @@
+# Variables
+set $mod Mod4
+
+set $term ghostty
+set $menu wofi --show drun
+
+
+# Init
+exec swayidle -w \
+        timeout 300 'swaylock -f' \
+        timeout 300 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+        before-sleep 'swaylock -f'
+exec swaync
+exec jamesdsp -t
+exec solaar -w hide
+
+
+# Appearance
+output DP-1 mode 2560x1440@165Hz pos 2560 0
+output DP-2 mode 2560x1440@165Hz pos 0 0
+
+font pango:AdwaitaMonoNerdFont SemiBold 11
+bar swaybar_command waybar
+
+set $bg     #000000ff
+set $focus  #303030ff
+set $accent #505050ff
+set $urgent #e6573eff
+set $text   #ffffffff
+# class                  border    bg        text      indicator child
+client.focused           $focus    $focus    $text     $accent   $focus
+client.focused_inactive  $bg       $bg       $text     $accent   $bg
+client.unfocused         $bg       $bg       $text     $accent   $bg
+client.urgent            $urgent   $urgent   $text     $accent   $bg
+client.placeholder       $bg       $bg       $text     $accent   $bg
+client.background        #00000000
+
+
+# Rules
+assign [class="discord"] 1
+for_window [app_id="org.gnome.Calculator"] floating enable
+for_window [app_id="com.github.finefindus.eyedropper"] floating enable
+for_window [app_id="com.mitchellh.ghostty"] title_format "%title — Ghostty"
+for_window [app_id="dev.zed.Zed"] title_format "%title — Zed"
+
+# Mouse
+mouse_warping none
+focus_follows_mouse no
+seat seat0 xcursor_theme Adwaita 24
+
+
+# Keybindings
+bindsym $mod+Shift+c reload
+
+bindsym $mod+q kill
+
+floating_modifier $mod normal
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+a focus parent
+bindsym $mod+Home focus parent
+bindsym $mod+z focus child
+bindsym $mod+End focus child
+
+bindsym $mod+Shift+Control+Left move container to workspace number 1
+bindsym $mod+Shift+Control+Right move container to workspace number 2
+
+bindsym $mod+h splith
+bindsym $mod+v splitv
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+f floating toggle
+
+bindsym Print exec grimshot savecopy anything ~/Pictures/Screenshots/$(date +'%Y%m%d-%H%M%S').png
+bindsym $mod+n exec swaync-client -t -sw
+bindsym $mod+t exec $term
+bindsym $mod+r exec $menu
+
+include /etc/sway/config.d/*

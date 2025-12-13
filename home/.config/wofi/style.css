@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+window {
+    background-color: #000000;
+}
+
+#input {
+    padding: 10px;
+}
+
+#input:focus {
+    box-shadow: none;
+}
+
+#input>* {
+    margin-right: 10px;
+}
+
+#img {
+    margin-right: 10px;
+}
+
+#entry {
+    padding: 10px;
+}
+
+#entry:selected {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#entry *:first-child {
+    margin-right: 10px;
+}
