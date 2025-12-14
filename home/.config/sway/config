@@ -18,8 +18,11 @@ exec solaar -w hide
 # Appearance
 output DP-1 mode 2560x1440@165Hz pos 2560 0
 output DP-2 mode 2560x1440@165Hz pos 0 0
+workspace 1 output DP-1
+workspace 2 output DP-2
 
 font pango:AdwaitaMonoNerdFont SemiBold 11
+# seat seat0 xcursor_theme Adwaita 24
 bar swaybar_command waybar
 
 set $bg     #000000ff
@@ -46,7 +49,6 @@ for_window [app_id="dev.zed.Zed"] title_format "%title — Zed"
 # Mouse
 mouse_warping none
 focus_follows_mouse no
-seat seat0 xcursor_theme Adwaita 24
 
 
 # Keybindings
@@ -71,8 +73,8 @@ bindsym $mod+Home focus parent
 bindsym $mod+z focus child
 bindsym $mod+End focus child
 
-bindsym $mod+Shift+Control+Left move container to workspace number 1
-bindsym $mod+Shift+Control+Right move container to workspace number 2
+bindsym $mod+Shift+Control+Right [con_id=__focused__] move container to workspace number 1, focus
+bindsym $mod+Shift+Control+Left [con_id=__focused__] move container to workspace number 2, focus
 
 bindsym $mod+h splith
 bindsym $mod+v splitv
@@ -86,5 +88,6 @@ bindsym Print exec grimshot savecopy anything ~/Pictures/Screenshots/$(date +'%Y
 bindsym $mod+n exec swaync-client -t -sw
 bindsym $mod+t exec $term
 bindsym $mod+r exec $menu
+bindsym $mod+l exec swaylock -f
 
 include /etc/sway/config.d/*

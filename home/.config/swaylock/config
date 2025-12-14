@@ -1,10 +1,11 @@
 clock
 indicator
-indicator-radius=100
+indicator-radius=250
 indicator-thickness=5
 line-color=00000000
 separator-color=00000000
 ring-color=ffffff30
 color=000000
 inside-color=00000000
+font=AdwaitaMonoNerdFont
 text-color=ffffff

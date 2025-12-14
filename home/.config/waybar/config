@@ -68,8 +68,9 @@
   },
   "clock": {
     "interval": 1,
-    "format": "{:%a %b %d (W%W) %H:%M:%S}",
+    "format": "{:%a %b %d (W%V) %H:%M:%S}",
     "tooltip-format": "{calendar}",
+    "on-click": "gnome-calendar",
     "calendar": {
       "mode": "month",
       "mode-mon-col": 3,
