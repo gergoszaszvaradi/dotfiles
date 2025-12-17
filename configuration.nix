@@ -71,6 +71,7 @@ in
     nerd-fonts.adwaita-mono
     nerd-fonts.caskaydia-cove
   ];
+  services.logind.extraConfig = ''HandlePowerKey=suspend'';
   # services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Enable sound with pipewire.
