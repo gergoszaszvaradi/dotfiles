@@ -72,6 +72,9 @@ in
     nerd-fonts.caskaydia-cove
   ];
   services.logind.extraConfig = ''HandlePowerKey=suspend'';
+  xdg.mime.defaultApplications = {
+    "inode/directory" = "com.mitchellh.ghostty.desktop";
+  };
   # services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Enable sound with pipewire.
@@ -117,18 +120,6 @@ in
 
   # Add steam
   programs.steam.enable = true;
-
-  # Nautilus open terminal extension
-  programs.nautilus-open-any-terminal = {
-    enable = true;
-    terminal = "ghostty";
-  };
-  environment = {
-    sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${pkgs.nautilus-python}/lib/nautilus/extensions-4";
-    pathsToLink = [
-      "/share/nautilus-python/extensions"
-    ];
-  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -178,7 +169,6 @@ in
     gimp
     anydesk
     nautilus
-    nautilus-python
     gnome-system-monitor
     unstable.multiviewer-for-f1
     gergoszaszvaradi.mixxx
